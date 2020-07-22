@@ -4,7 +4,7 @@ class Author extends React.Component {
   render() {
 
     const authors = this.props.author.map((author) =>
-      <div>{author.name} {author.email} <img style={styles.avatar} src={author.avatar} /></div>
+      <div key={author.id}>{author.name} {author.email} <img style={styles.avatar} src={author.avatar} /></div>
     );
 
     return (<div style={styles.authorsContainer}>{authors}</div>)

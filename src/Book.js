@@ -16,8 +16,8 @@ class Book extends React.Component {
           <img style={styles.image} src={book.image} />
         </div>
         <div style={styles.priceBlock}>
-          <div>Minimum price {book.min_price}$</div>
-          <div>Suggested price {book.sug_price}$</div>
+          <div>Minimum price {book.minimumPrice}$</div>
+          <div>Suggested price {book.suggestedPrice}$</div>
         </div>
       </div>
     )
