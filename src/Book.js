@@ -1,4 +1,5 @@
 import React from 'react';
+import SubscribeModal from './SubscribeModal'
 
 class Book extends React.Component {
   render() {
@@ -18,6 +19,8 @@ class Book extends React.Component {
         <div style={styles.priceBlock}>
           <div>Minimum price {book.minimumPrice}$</div>
           <div>Suggested price {book.suggestedPrice}$</div>
+          <div>Subscribers {book.subscribers}{book.subscribers > 200 && ' is Popular!!!'}</div>
+          <SubscribeModal />
         </div>
       </div>
     )
