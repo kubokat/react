@@ -1,27 +1,27 @@
 import React from 'react';
 import SubscribeModal from './SubscribeModal'
+import BookColumn from './BookColumn'
 
 class Book extends React.Component {
   render() {
-
-    const book = this.props.book;
+    const { title, description, pages, image, minimumPrice, suggestedPrice, subscribers } = this.props.book;
 
     return (
-      <div>
-        <div style={styles.description}>
-          <h1>{book.title}</h1>
-          <div>{book.description}</div>
-          <div>{book.pages} Pages</div>
-        </div>
-        <div style={styles.imageBlock}>
-          <img style={styles.image} src={book.image} />
-        </div>
-        <div style={styles.priceBlock}>
-          <div>Minimum price {book.minimumPrice}$</div>
-          <div>Suggested price {book.suggestedPrice}$</div>
-          <div>Subscribers {book.subscribers}{book.subscribers > 200 && ' is Popular!!!'}</div>
+      <div style={styles.mainBlock}>
+        <BookColumn name='description'>
+          <h1>{title}</h1>
+          <div>{description}</div>
+          <div>{pages} Pages</div>
+        </BookColumn>
+        <BookColumn name='imageBlock'>
+          <img style={styles.image} src={image} />
+        </BookColumn>
+        <BookColumn name='priceBlock'>
+          <div>Minimum price ${minimumPrice}</div>
+          <div>Suggested price ${suggestedPrice}</div>
+          <div>Subscribers {subscribers}{subscribers > 200 && ' is Popular!!!'}</div>
           <SubscribeModal />
-        </div>
+        </BookColumn>
       </div>
     )
   }
@@ -30,23 +30,12 @@ class Book extends React.Component {
 export default Book;
 
 const styles = {
-  description: {
-    width: '33.33%',
-    float: 'left'
-  },
-
-  priceBlock: {
-    width: '33.33%',
-    float: 'left',
-    textAlign: 'center'
-  },
-
-  imageBlock: {
-    width: '33.33%',
-    float: 'left'
-  },
-
   image: {
     maxWidth: '100%'
+  },
+
+  mainBlock : {
+    padding: '10px 10%',
+    float: 'left'
   }
 }

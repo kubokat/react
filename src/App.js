@@ -1,8 +1,13 @@
 import React from 'react';
 import Book from './Book';
 import Author from './Author';
+import FeedBack from './FeedBack';
+import UserInfo from './UserInfo';
 
-import book from './book.json';
+import AuthContext from './AuthContext'
+
+import book from './data/book.json';
+import user from './data/user.json';
 
 import './index.css'
 
@@ -10,15 +15,18 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <header style={styles.header}>
-                    Store
-                </header>
-                <main style={styles.main}>
-                    <Book book={book} />
-                    <Author author={book.authors} />
-                </main>
-                <footer style={styles.footer}>&copy; {new Date().getFullYear()}</footer>
-
+                <AuthContext.Provider value={user}>
+                    <header style={styles.header}>
+                        <div style={styles.logo}>Store</div>
+                        <UserInfo />
+                    </header>
+                    <main>
+                        <Book book={book} />
+                        <Author author={book.authors} />
+                        <FeedBack />
+                    </main>
+                    <footer style={styles.footer}>&copy; {new Date().getFullYear()}</footer>
+                </AuthContext.Provider>
             </>
         );
     }
@@ -31,10 +39,13 @@ const styles = {
         display: 'flex',
         color: 'white',
         backgroundColor: 'black',
-        justifyContent: 'center',
         height: '50px',
         fontWeight: 'bold',
         alignItems: 'center'
+    },
+
+    logo: {
+        marginLeft: '30px'
     },
 
     main: {
