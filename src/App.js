@@ -1,8 +1,8 @@
 import React from 'react';
-import Book from './Book';
-import Author from './Author';
-import FeedBack from './FeedBack';
-import UserInfo from './UserInfo';
+import Book from './components/book/Book';
+import Author from './components/author/Author';
+import FeedBack from './components/feedback/FeedBack';
+import UserInfo from './components/users/UserInfo';
 
 import AuthContext from './AuthContext'
 
@@ -14,7 +14,6 @@ import './index.css'
 class App extends React.Component {
     render() {
         return (
-            <>
                 <AuthContext.Provider value={user}>
                     <header style={styles.header}>
                         <div style={styles.logo}>Store</div>
@@ -27,7 +26,6 @@ class App extends React.Component {
                     </main>
                     <footer style={styles.footer}>&copy; {new Date().getFullYear()}</footer>
                 </AuthContext.Provider>
-            </>
         );
     }
 }

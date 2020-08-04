@@ -1,8 +1,8 @@
 import React from 'react';
-import userContext from './AuthContext'
+import UserContext from '../../AuthContext'
 
 const UserInfo = () => (
-  <userContext.Consumer>
+  <UserContext.Consumer>
     {
       (user) => (
         Object.keys(user).length && (
@@ -13,7 +13,7 @@ const UserInfo = () => (
         )
       )
     }
-  </userContext.Consumer>
+  </UserContext.Consumer>
 );
 
 export default UserInfo;

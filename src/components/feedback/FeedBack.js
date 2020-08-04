@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import Field from '../form/Field'
 
 class FeedBack extends React.Component {
   constructor(props) {
@@ -31,9 +31,9 @@ class FeedBack extends React.Component {
     return (
       <div style={styles.container}>
         <form onSubmit={this.sendForm}>
-          <p><label>Name</label><input onChange={this.change} style={styles.input} type="text" name="name" /></p>
-          <p><label>E-mail</label><input onChange={this.change} style={styles.input} type="email" name="email" /></p>
-          <p><label>Comments</label><textarea onChange={this.change} style={styles.input} name="comments"></textarea></p>
+          <Field label='Name' InputType='input' name="name" change={this.change} />
+          <Field label='E-mail' InputType='input' name="email" change={this.change} />
+          <Field label='Comments' InputType='textarea' name="comments" change={this.change} />
           <p><input type="submit" value="Send" /></p>
         </form>
       </div>
@@ -48,16 +48,5 @@ const styles = {
     borderRadius: '5px',
     backgroundColor: '#f2f2f2',
     padding: '20px'
-  },
-
-  input: {
-    width: '100%',
-    padding: '12px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    boxSizing: 'border-box',
-    marginTop: '6px',
-    marginBottom: '16px',
-    resize: 'vertical'
   }
 }
