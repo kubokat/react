@@ -21,8 +21,9 @@ class Author extends React.Component {
     );
 
     return (
-      <div>
-        <div style={styles.authorsContainer}>
+      <div style={styles.authorsContainer}>
+        <h2>Authors</h2>
+        <div>
           {authors}
         </div>
         {authorsCounter > this.state.authors && <button onClick={() => this.showAll()} style={styles.a}>Show all {authorsCounter}</button>}
@@ -35,16 +36,12 @@ export default Author
 
 const styles = {
   authorsContainer: {
-    float: 'left',
-    width: '100%'
+    width: '100%',
+    textAlign: 'center'
   },
 
   avatar: {
     borderRadius: '35px',
     maxWidth: '70px'
   },
-
-  a: {
-    float: 'left'
-  }
 }
