@@ -7,9 +7,11 @@ import UserInfo from './components/users/UserInfo';
 import AuthContext from './AuthContext'
 
 import book from './data/book.json';
+import books from './data/books.json';
 import user from './data/user.json';
 
 import './index.css'
+import SimilarBooks from './components/similarBooks/SimilarBooks';
 
 class App extends React.Component {
     render() {
@@ -23,6 +25,7 @@ class App extends React.Component {
                         <Book book={book} />
                         <Author author={book.authors} />
                         <FeedBack />
+                        <SimilarBooks books={books} />
                     </main>
                     <footer style={styles.footer}>&copy; {new Date().getFullYear()}</footer>
                 </AuthContext.Provider>
