@@ -1,20 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import UserContext from '../../AuthContext'
 
-const UserInfo = () => (
-  <UserContext.Consumer>
-    {
-      (user) => (
-        Object.keys(user).length && (
-          <div style={styles.container}>
-            <img src={user.avatarUrl} />
-            <div>{user.firstName} {user.lastName}</div>
-          </div>
-        )
-      )
-    }
-  </UserContext.Consumer>
-);
+const UserInfo = () => {
+
+  const user = useContext(UserContext);
+
+  return (
+    Object.keys(user).length && (
+      <div style={styles.container}>
+        <img src={user.avatarUrl} />
+        <div>{user.firstName} {user.lastName}</div>
+      </div>
+    )
+  )
+};
 
 export default UserInfo;
 

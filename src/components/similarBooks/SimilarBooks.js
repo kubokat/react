@@ -1,5 +1,7 @@
 import React from 'react';
 import SimilarBooksList from './SimilarBooksList'
+import withLoader from '../../HOC/withLoader'
+import getBooks from '../../HOC/getBooks'
 
 class SimilarBooks extends React.Component {
   constructor(props) {
@@ -8,7 +10,6 @@ class SimilarBooks extends React.Component {
     this.removeBook = this.removeBook.bind(this);
 
     this.state = {
-      books: null,
       removedIds: []
     };
   }
@@ -19,56 +20,27 @@ class SimilarBooks extends React.Component {
     }));
   }
 
-  componentDidMount() {
-    this._getData();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.removedIds !== this.state.removedIds) {
-      this._getData();
-    }
-  }
-
-  _getData() {
-
-    let ids = '';
-
-    if (this.state.removedIds.length) {
-      ids = `SEARCH(RECORD_ID(), "${this.state.removedIds.join(',')}") = ""`
-    }
-
-    this.props.api.request('SameBooks', 3, ids)
-      .then(json => this._setData(json));
-  }
-
-  _setData(data) {
-    this.setState({ books: this.props.api.mapFromAirTable(data.records) })
-  }
-
   render() {
+    const { removedIds } = this.state;
 
-    if (this.state.books !== null) {
-      const books = this.state.books.slice(0, 3);
-      return (
-        <div style={styles.container}>
-          {books.length ? <h3>Similar books</h3> : <p>is empty</p>}
-          <SimilarBooksList books={books} removeBook={this.removeBook} />
-        </div>
-      )
-    } else {
-      return (
-        <div style={styles.container}>
-          Loading ...
-        </div>
-      )
-    }
-
-
+    const books = this.props.books
+      .filter(function (book) {
+        if (!removedIds.includes(book.id)) {
+          return book;
+        }
+      })
+      .slice(0, 3);
+    return (
+      <div style={styles.container}>
+        {books.length ? <h3>Similar books</h3> : <p>is empty</p>}
+        <SimilarBooksList books={books} removeBook={this.removeBook} />
+      </div>
+    )
   }
 
 }
 
-export default SimilarBooks;
+export default getBooks(withLoader(SimilarBooks));
 
 const styles = {
   container: {
