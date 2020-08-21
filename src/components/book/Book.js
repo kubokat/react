@@ -5,38 +5,23 @@ import Price from '../prices/Price'
 import Description from '../description/Description'
 import ImageBlock from '../imageBlock/ImageBlock'
 import SubscribersInfo from '../subscribersInfo/SubscribersInfo';
+import getBooks from '../../HOC/getBooks'
+import withLoader from '../../HOC/withLoader'
 
 class Book extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      book: null
-    }
     this.textInput = React.createRef();
 
   }
 
-  componentDidMount() {
-    this._getData();
-  }
-
-  _setData(data) {
-    this.setState({ book: this.props.api.mapFromAirTable(data.records)[0] })
-  }
-
-  _getData() {
-    this.props.api.request('Book')
-      .then(json => this._setData(json));
-  }
-
   render() {
 
-    if (this.state.book !== null) {
-      const { title, description, pages, image, minimumPrice, suggestedPrice, subscribers } = this.state.book;
+    if (this.props.books !== null) {
+      const { title, description, pages, image, minimumPrice, suggestedPrice, subscribers } = this.props.books[0];
 
       return (
-        <div style={styles.mainBlock}>
+        <div table='Book' style={styles.mainBlock}>
           <Description>
             <h1>{title}</h1>
             <div>{description}</div>
@@ -51,13 +36,11 @@ class Book extends React.Component {
           </Prices>
         </div>
       )
-    } else {
-      return (<div>Loading ... </div>)
     }
   }
 }
 
-export default Book;
+export default getBooks(withLoader(Book));
 
 const styles = {
   mainBlock: {
