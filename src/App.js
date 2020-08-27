@@ -6,8 +6,8 @@ import UserInfo from './components/users/UserInfo';
 
 import AuthContext from './AuthContext'
 
-import book from './data/book.json';
-import user from './data/user.json';
+import authors from './data/authors';
+import user from './data/user';
 
 import './index.css'
 import SimilarBooks from './components/similarBooks/SimilarBooks';
@@ -22,7 +22,7 @@ class App extends React.Component {
                 </header>
                 <main>
                     <Book table="Book" limit="1" />
-                    <Author author={book.authors} />
+                    <Author author={authors} />
                     <FeedBack />
                     <SimilarBooks table="SameBooks" limit="6" />
                 </main>
