@@ -21,14 +21,14 @@ class Book extends React.Component {
       const { title, description, pages, image, minimumPrice, suggestedPrice, subscribers } = this.props.books[0];
 
       return (
-        <div table='Book' style={styles.mainBlock}>
+        <div table='Book' className="flex flex-wrap">
           <Description>
-            <h1>{title}</h1>
+            <h1 className="text-2xl">{title}</h1>
             <div>{description}</div>
             <div>{pages} Pages</div>
           </Description>
           <ImageBlock image={image} />
-          <Prices style={styles.priceBlock} minValue={minimumPrice}>
+          <Prices minValue={minimumPrice}>
             <Price label='Minimum price' value={minimumPrice} />
             <Price label='Suggested price' value={suggestedPrice} />
             <SubscribersInfo number={subscribers} />
@@ -42,9 +42,3 @@ class Book extends React.Component {
 
 export default getBooks(withLoader(Book));
 
-const styles = {
-  mainBlock: {
-    padding: '10px 10%',
-    float: 'left'
-  }
-}

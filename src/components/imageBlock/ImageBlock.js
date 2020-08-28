@@ -1,20 +1,9 @@
 import React from 'react';
 
 const ImageBlock = ({ image }) => (
-  <div style={styles.imageBlock}>
-    <img style={styles.image} src={image} />
+  <div className="w-full p-0 md:w-1/3 md:p-10">
+    <img className="max-w-full" src={image} />
   </div>
 );
 
 export default ImageBlock;
-
-const styles = {
-  image: {
-    maxWidth: '100%'
-  },
-
-  imageBlock: {
-    width: '33.33%',
-    float: 'left'
-  }
-}

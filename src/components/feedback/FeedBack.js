@@ -29,12 +29,12 @@ class FeedBack extends React.Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className="p-10">
         <form onSubmit={this.sendForm}>
           <Field label='Name' InputType='input' name="name" change={this.change} />
           <Field label='E-mail' InputType='input' name="email" change={this.change} />
           <Field label='Comments' InputType='textarea' name="comments" change={this.change} />
-          <p><input type="submit" value="Send" /></p>
+          <p><input className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Send" /></p>
         </form>
       </div>
     );
@@ -43,10 +43,3 @@ class FeedBack extends React.Component {
 
 export default FeedBack;
 
-const styles = {
-  container: {
-    borderRadius: '5px',
-    backgroundColor: '#f2f2f2',
-    padding: '20px'
-  }
-}

@@ -16,8 +16,8 @@ class App extends React.Component {
     render() {
         return (
             <AuthContext.Provider value={user}>
-                <header style={styles.header}>
-                    <div style={styles.logo}>Store</div>
+                <header className="flex bg-black text-white font-bold pr-8 pl-8">
+                    <div className="self-center w-1/2">Store</div>
                     <UserInfo />
                 </header>
                 <main>

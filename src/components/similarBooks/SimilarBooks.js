@@ -31,9 +31,11 @@ class SimilarBooks extends React.Component {
       })
       .slice(0, 3);
     return (
-      <div style={styles.container}>
-        {books.length ? <h3>Similar books</h3> : <p>is empty</p>}
-        <SimilarBooksList books={books} removeBook={this.removeBook} />
+      <div className="md:p-10">
+        {books.length ? <h2 className="text-3xl">Similar books</h2> : <p>is empty</p>}
+        <div className="flex flex-wrap">
+          <SimilarBooksList books={books} removeBook={this.removeBook} />
+        </div>
       </div>
     )
   }
@@ -41,9 +43,3 @@ class SimilarBooks extends React.Component {
 }
 
 export default getBooks(withLoader(SimilarBooks));
-
-const styles = {
-  container: {
-    textAlign: 'center'
-  }
-}
