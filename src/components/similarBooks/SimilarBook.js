@@ -1,19 +1,12 @@
 import React from 'react';
+import Button from '../form/Button'
 
 const SimilarBook = React.memo(({ book, removeBook }) => (
-    console.log('render ' + book.id) ||
-    <div key={book.id} style={styles.book}>
-      <img width="200px" src={book.image} />
-      <p>{book.title}</p>
-      <button onClick={() => removeBook(book.id)}>x</button>
+    <div key={book.id} className="w-full pb-3 md:w-1/3 md:p-2 text-center">
+      <img className="w-full md:w-200" src={book.image} />
+      <p className="text-xl">{book.title}</p>
+      <Button onClick={() => removeBook(book.id)} label="x" />
     </div>
 ));
 
 export default SimilarBook;
-
-const styles = {
-  book: {
-    float: 'left',
-    width: '33.33%',
-  }
-}

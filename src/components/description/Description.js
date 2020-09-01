@@ -1,16 +1,9 @@
 import React from 'react';
 
 const Description = ({ children }) => (
-  <div style={styles.description}>
+  <div className="w-full md:w-1/3 p-10">
     {children}
   </div>
 );
 
 export default Description;
-
-const styles = {
-  description: {
-    width: '33.33%',
-    float: 'left'
-  }
-}

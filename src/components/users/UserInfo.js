@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import UserContext from '../../AuthContext'
 
 const UserInfo = () => {
@@ -7,9 +7,12 @@ const UserInfo = () => {
 
   return (
     Object.keys(user).length && (
-      <div style={styles.container}>
-        <img src={user.avatarUrl} />
-        <div>{user.firstName} {user.lastName}</div>
+      <div className="self-end w-1/2 text-right">
+
+        <div>
+          <img className="inline" src={user.avatarUrl} />
+          {user.firstName} {user.lastName}
+        </div>
       </div>
     )
   )
@@ -17,11 +20,3 @@ const UserInfo = () => {
 
 export default UserInfo;
 
-const styles = {
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: 'auto',
-    marginRight: '30px'
-  }
-}

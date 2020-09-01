@@ -14,9 +14,10 @@ class Prices extends React.Component {
 
   render() {
     return (
-      <div style={styles.priceBlock}>
+      <div className="w-full md:w-1/3 p-10">
         {this.props.children}
         <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           ref={this.textInputRef}
           defaultValue={this.props.minValue}
@@ -27,11 +28,3 @@ class Prices extends React.Component {
 }
 
 export default Prices;
-
-const styles = {
-  priceBlock: {
-    width: '33.33%',
-    float: 'left',
-    textAlign: 'center'
-  }
-}

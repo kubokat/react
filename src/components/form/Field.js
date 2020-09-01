@@ -4,24 +4,11 @@ const Field = (props) => {
   const { label, name, change, InputType } = props;
 
   return (
-    <p>
-      <label>{label}</label>
-      <InputType style={styles.input} name={name} onChange={change} />
-    </p>
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2">{label}</label>
+      <InputType className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name={name} onChange={change} />
+    </div>
   );
 };
 
 export default Field;
-
-const styles = {
-  input: {
-    width: '100%',
-    padding: '12px',
-    border: '1px solid #ccc',
-    borderRadius: '4px',
-    boxSizing: 'border-box',
-    marginTop: '6px',
-    marginBottom: '16px',
-    resize: 'vertical'
-  }
-}

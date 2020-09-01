@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../form/Button';
 
 class Author extends React.Component {
 
@@ -17,31 +18,19 @@ class Author extends React.Component {
     const authorsCounter = this.props.author.length;
 
     const authors = this.props.author.slice(0, this.state.authors).map((author) =>
-      <div key={author.id}>{author.name} {author.email} <img style={styles.avatar} src={author.avatar} /></div>
+      <div className="w-full md:w-1/3" key={author.id}><p>{author.name} {author.email}</p> <img className="rounded-full w-20" src={author.avatar} /></div>
     );
 
     return (
-      <div style={styles.authorsContainer}>
-        <h2>Authors</h2>
-        <div>
+      <div className="p-10">
+        <h2 className="text-3xl">Authors</h2>
+        <div className="flex flex-wrap">
           {authors}
         </div>
-        {authorsCounter > this.state.authors && <button onClick={() => this.showAll()} style={styles.a}>Show all {authorsCounter}</button>}
+        {authorsCounter > this.state.authors && <Button onClick={() => this.showAll()} label={'Show all ' + authorsCounter + ' authors'} />}
       </div>
     )
   }
 }
 
 export default Author
-
-const styles = {
-  authorsContainer: {
-    width: '100%',
-    textAlign: 'center'
-  },
-
-  avatar: {
-    borderRadius: '35px',
-    maxWidth: '70px'
-  },
-}
