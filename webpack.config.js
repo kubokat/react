@@ -17,15 +17,14 @@ module.exports = {
   },
   module: {
     rules: [
-      { 
-        test: /\.js/, 
-        use: 'babel-loader' 
+      {
+        test: /\.js/,
+        use: 'babel-loader'
       },
-      { 
-        test: /\.css/, 
+      {
+        test: /\.css/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
-      
     ]
   },
   plugins: [

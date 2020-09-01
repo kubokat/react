@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../form/Button';
 
 class Author extends React.Component {
 
@@ -26,7 +27,7 @@ class Author extends React.Component {
         <div className="flex flex-wrap">
           {authors}
         </div>
-        {authorsCounter > this.state.authors && <button onClick={() => this.showAll()} className="btn btn-blue mt-5">Show all {authorsCounter}</button>}
+        {authorsCounter > this.state.authors && <Button onClick={() => this.showAll()} label={'Show all ' + authorsCounter + ' authors'} />}
       </div>
     )
   }

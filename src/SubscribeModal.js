@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import Button from './components/form/Button';
 
 class SubscribeModal extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class SubscribeModal extends React.Component {
   render() {
     return (
       <>
-        <button onClick={() => this.toggle()}>Subscribe</button>
+        <Button label="Subscribe" onClick={() => this.toggle()} />
         {
           this.state.isOpen && ReactDom.createPortal(
             <div style={style.overlay}>
