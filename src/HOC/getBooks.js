@@ -2,6 +2,7 @@ import React from 'react';
 
 const key = 'key3eShYFKG0oFCkD';
 const path = 'https://api.airtable.com/v0/appgSrex1ZN9GqVfd/';
+const table = 'Book';
 
 const getBooks = EnhancedComponent => class extends React.Component {
   constructor(props) {
@@ -17,8 +18,17 @@ const getBooks = EnhancedComponent => class extends React.Component {
   }
 
   _setData(data) {
+
+    let response = {};
+
+    if (data.hasOwnProperty('records')) {
+      response = data.records;
+    } else {
+      response = [data];
+    }
+
     this.setState({
-      books: this._mapFromAirTable(data.records),
+      books: this._mapFromAirTable(response),
     })
   }
 
@@ -29,10 +39,14 @@ const getBooks = EnhancedComponent => class extends React.Component {
 
   _request() {
     let params = {};
-    let url = path + this.props.table;
+    let url = path + table;
 
     if (this.props.limit) {
       params['maxRecords'] = this.props.limit;
+    }
+
+    if (this.props.bookId) {
+      url += '/' + this.props.bookId + '/';
     }
 
     if (Object.keys(params).length) {

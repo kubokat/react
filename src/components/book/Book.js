@@ -1,12 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import SubscribeModal from '../../SubscribeModal'
 import Prices from '../prices/Prices'
 import Price from '../prices/Price'
 import Description from '../description/Description'
 import ImageBlock from '../imageBlock/ImageBlock'
 import SubscribersInfo from '../subscribersInfo/SubscribersInfo';
-import getBooks from '../../HOC/getBooks'
-import withLoader from '../../HOC/withLoader'
+import getBooks from '../../HOC/getBooks';
+import withLoader from '../../HOC/withLoader';
 
 class Book extends React.Component {
   constructor(props) {
@@ -22,6 +24,9 @@ class Book extends React.Component {
 
       return (
         <div table='Book' className="flex flex-wrap">
+          <Helmet>
+            <title>{title}</title>
+          </Helmet>
           <Description>
             <h1 className="text-2xl">{title}</h1>
             <div>{description}</div>
@@ -41,4 +46,3 @@ class Book extends React.Component {
 }
 
 export default getBooks(withLoader(Book));
-
