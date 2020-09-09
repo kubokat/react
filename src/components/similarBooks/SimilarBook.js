@@ -6,7 +6,7 @@ import { bookPath } from '../../helpers/routes'
 const SimilarBook = React.memo(({ book, removeBook }) => (
 
   <div key={book.id} className="w-full pb-3 md:w-1/3 md:p-2 text-center">
-    <Link to={`/book/${book.id}`}>
+    <Link to={bookPath(book.id)}>
       <img className="w-full md:w-200" src={book.image} />
     </Link>
 
