@@ -33,7 +33,7 @@ class Book extends React.Component {
             <div>{pages} Pages</div>
           </Description>
           <ImageBlock image={image} />
-          <Prices minValue={minimumPrice}>
+          <Prices minValue={minimumPrice} maxValue={suggestedPrice}>
             <Price label='Minimum price' value={minimumPrice} />
             <Price label='Suggested price' value={suggestedPrice} />
             <SubscribersInfo number={subscribers} />

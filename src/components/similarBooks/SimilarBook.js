@@ -12,6 +12,7 @@ const SimilarBook = React.memo(({ book, removeBook }) => (
 
     <Link to={bookPath(book.id)}>
       <p className="text-xl">{book.title}</p>
+      
     </Link>
     {removeBook ? <Button onClick={() => removeBook(book.id)} label="x" /> : ''}
   </div>
