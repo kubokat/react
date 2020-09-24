@@ -1,14 +1,20 @@
 import React from 'react';
+import FieldsLayout from './FieldsLayout';
 
-const Field = (props) => {
-  const { label, name, change, InputType } = props;
+const Field = React.forwardRef((props, ref) => {
+  const { label, name, errors, change, InputType } = props;
+  const inputClass = 'appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline';
 
   return (
-    <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2">{label}</label>
-      <InputType className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name={name} onChange={change} />
-    </div>
+    <FieldsLayout errors={errors} label={label} name={name}>
+        <InputType
+          ref={ref}
+          className={inputClass}
+          name={name}
+          onChange={change}
+        />
+    </FieldsLayout>
   );
-};
+});
 
 export default Field;

@@ -1,8 +1,5 @@
 import React from 'react';
-
-const key = 'key3eShYFKG0oFCkD';
-const path = 'https://api.airtable.com/v0/appgSrex1ZN9GqVfd/';
-const table = 'Book';
+import { key, path, table } from '../data/config'
 
 const getBooks = EnhancedComponent => class extends React.Component {
   constructor(props) {

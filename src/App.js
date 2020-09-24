@@ -10,6 +10,7 @@ import Layout from './components/shared/layout';
 
 import MainPage from './pages/MainPage'
 import BookPage from './pages/BookPage';
+import AddBook from './pages/AddBook';
 import NotFound from './pages/NotFound'
 
 import { bookPath } from './helpers/routes'
@@ -23,6 +24,7 @@ class App extends React.Component {
                         <Switch>
                             <Route component={MainPage} path="/" exact />
                             <Route component={BookPage} path={bookPath()} strict exact />
+                            <Route component={AddBook} path="/addbook" strict exact />
                             <Route component={NotFound} />
                         </Switch>
                     </Layout>
