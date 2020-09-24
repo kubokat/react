@@ -1,6 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom"
-import Field from '../components/form/Field'
+import { useHistory } from "react-router-dom";
+import Field from '../components/form/Field';
+import Select from '../components/form/Select'
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from "yup";
@@ -40,7 +41,7 @@ const AddBook = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <Field label='Title' errors={errors} InputType='input' name="title" ref={register} />
         <Field label='Description' errors={errors} InputType='textarea' name="description" ref={register} />
-        <Field label='Author' errors={errors} InputType='select' name="author" items={authorsList} ref={register} />
+        <Select label='Author' errors={errors} InputType='select' name="author" items={authorsList} ref={register} />
         <Field label='Pages' errors={errors} InputType='input' name="pages" ref={register} />
         <Field label='Price' errors={errors} InputType='input' name="minimumPrice" ref={register} />
         <input className="mb-4" type="file" name="image" ref={register} />

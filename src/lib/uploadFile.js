@@ -1,11 +1,9 @@
 import { fileStackKey, fileStackPath } from '../data/config.js';
+import { uploadPath } from '../helpers/apiPaths'
 
 function uploadFile(file) {
-
-  const url = fileStackPath + '?key=' + fileStackKey
-
   return fetch(
-    url, {
+    uploadPath(fileStackKey, fileStackPath), {
     method: 'POST',
     body: file
   })
